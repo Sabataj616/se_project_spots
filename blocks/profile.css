@@ -1,0 +1,127 @@
+.profile {
+  display: flex;
+  padding: 34px 0 20px;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+}
+
+.profile__add-btn {
+  margin-left: auto;
+  background-color: rgba(33, 33, 33, 1);
+  min-width: 149px;
+  height: 52px;
+  border-radius: 8px;
+  padding: 18px 32px;
+  color: rgba(252, 245, 229, 1);
+  font-size: 16px;
+  margin-top: 138px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.profile__avatar {
+  margin-right: 20px;
+  height: 190px;
+  width: 190px;
+}
+
+.profile__column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile__edit-btn {
+  margin-top: auto;
+  min-width: 107.34px;
+  height: 16px;
+  opacity: 0.7;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.profile__name {
+  margin: 0;
+  width: 420px;
+  height: 32px;
+  color: rgba(33, 33, 33, 1);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+}
+
+.profile__description {
+  margin: 12px 0 0 0;
+  color: rgba(33, 33, 33, 0.7);
+  width: 97px;
+  height: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__column {
+    align-items: center;
+  }
+
+  .profile__avatar {
+    margin-right: 0;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    min-width: 288px;
+    height: 20px;
+    margin-bottom: 6px;
+    max-width: 288px;
+  }
+
+  .profile__column {
+    margin-bottom: 20px;
+  }
+
+  .profile__description {
+    margin-bottom: 32px;
+    min-width: 288px;
+    height: 16px;
+    max-width: 288px;
+  }
+
+  .profile__edit-btn {
+    border-radius: 90px;
+  }
+
+  .profile__add-btn {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
