@@ -16,4 +16,4 @@ This project contains images with descriptions that are visible on a desktop and
 
 This webpage is deployed to Github Pages
 
-- Deployment Link: https://sabataj616.github.io/se_project_spots/
+- [Deployment Link] (https://sabataj616.github.io/se_project_spots/)
