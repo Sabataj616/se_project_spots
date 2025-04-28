@@ -17,12 +17,19 @@
   display: flex;
   gap: 8px;
   align-items: center;
+  cursor: pointer;
+}
+
+.profile__add-btn:hover{
+  opacity: .8;
 }
 
 .profile__avatar {
   margin-right: 20px;
   height: 190px;
   width: 190px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .profile__column {
@@ -41,6 +48,12 @@
   display: flex;
   gap: 8px;
   align-items: center;
+  cursor: pointer;
+}
+
+.profile__edit-btn:hover {
+  opacity: 1;
+
 }
 
 .profile__name {
