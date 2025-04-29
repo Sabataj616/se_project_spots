@@ -10,6 +10,7 @@
   min-width: 149px;
   height: 52px;
   border-radius: 8px;
+  border: none;
   padding: 18px 32px;
   color: rgba(252, 245, 229, 1);
   font-size: 16px;
@@ -49,6 +50,8 @@
   gap: 8px;
   align-items: center;
   cursor: pointer;
+  font-weight: 500;
+  color: #212121
 }
 
 .profile__edit-btn:hover {
@@ -58,8 +61,6 @@
 
 .profile__name {
   margin: 0;
-  width: 420px;
-  height: 32px;
   color: rgba(33, 33, 33, 1);
   font-weight: 500;
   font-size: 32px;
@@ -75,8 +76,6 @@
 .profile__description {
   margin: 12px 0 0 0;
   color: rgba(33, 33, 33, 0.7);
-  width: 97px;
-  height: 16px;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
@@ -121,9 +120,8 @@
   }
 
   .profile__description {
+    margin-top: 0;
     margin-bottom: 32px;
-    min-width: 288px;
-    height: 16px;
     max-width: 288px;
   }
 
