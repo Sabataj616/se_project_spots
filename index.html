@@ -89,6 +89,33 @@
       <footer class="footer">
         <p class=footer__copyright>2023 &copy; Spots</p>
       </footer>
+      <div class="modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">New post</h2>
+          <form class="modal__form">
+            <label for="profile-name-input" class="modal__label">Name</label>
+            <input class="modal__input" type="text" id="profile-name-input" placeholder="Type your name">
+            <label for="description-input" class="modal__label">Description</label>
+            <input class="modal__input" type="text" id="description-input" placeholder="Describe yourself">
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal modal_is-opened">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title"> New post</h2>
+          <form class="modal__form">
+            <label for="image-link-input" class="modal__label">Image link</label>
+            <input class="modal__input" type="text" id="image-link-input" placeholder="Paste a link to the picture">
+            <label for="caption-input" class="modal__label">Caption</label>
+            <input class="modal__input" type="text" id="caption-input" placeholder="Type your caption">
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
