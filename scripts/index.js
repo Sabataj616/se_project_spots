@@ -15,7 +15,7 @@ const editProfileDescriptionInput =
   editProfileModal.querySelector("#description-input");
 const profileFormElement = document.querySelector(".modal__form");
 
-const cardFormElement = newPostModal.querySelector("modal__form");
+const cardFormElement = newPostModal.querySelector(".modal__form");
 const imageLinkInput = cardFormElement.querySelector("#image-link-input");
 const captionInput = cardFormElement.querySelector("#caption-input");
 
