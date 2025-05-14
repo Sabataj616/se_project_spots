@@ -11,13 +11,12 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  transition: opacity 100ms ease, visibility 0s ease 100ms;
+  transition: opacity 100ms ease, visibility 2s ease 100ms;
 }
 
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
-  transition: opacity 100ms ease;
 }
 
 .modal__container {
@@ -31,21 +30,25 @@
 }
 
 .modal__close-btn {
-  background-image: url(../images/Closeicon2.svg);
+  background-image: url(../images/Hoverclose.svg);
   background-repeat: no-repeat;
   background-color: transparent;
   position: absolute;
   width: 40px;
   height: 40px;
-  top: 50px;
-  right: 20px;
-  border: 2px;
+  top: 32px;
+  right: 50px;
   opacity: 40%;
+  cursor: pointer;
+  padding: 0;
+  border: none
 }
 
+.modal__close-btn:hover {
+  opacity: 1;
+}
 .modal__title {
-  max-width: 169px;
-  margin-top: 0 0 32px;
+  margin: 0 0 32px;
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
@@ -54,7 +57,6 @@
 
 .modal__label {
   margin: 0 0 8px;
-  max-width: 85px;
   color: rgba(33, 33, 33, 0.7);
   font-weight: 500;
   font-size: 16px;
@@ -64,7 +66,7 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  max-width: 630px;
+  width: 100%;
 }
 
 .modal__input {
@@ -72,20 +74,20 @@
   width: 100%;
   border-radius: 8px;
   padding: 16px 12px;
-  gap: 10px;
   color: rgba(33, 33, 33, 1);
   border-color: rgba(33, 33, 33, 0.4);
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
+.modal__input:hover {
+  opacity: 1;
+}
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 0.3);
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1;
-  width: 100%;
 }
 
 .modal__submit-btn {
@@ -99,10 +101,16 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
+  cursor: pointer;
+  border: 0;
 }
 
+.modal__submit-btn:hover {
+  opacity: .8;
+}
 @media screen and (max-width: 627px) {
   .modal__container {
+    padding: 12px;
   }
 
   .modal__title {
@@ -110,12 +118,10 @@
     margin-bottom: 24px;
   }
 
-  .modal__input::placeholder {
-    font-size: 16px;
-  }
 
   .modal__input {
     margin-bottom: 24px;
+    font-size: 16px;
   }
 
   .modal__submit-btn {
