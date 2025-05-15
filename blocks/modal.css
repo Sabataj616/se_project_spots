@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  transition: opacity 100ms ease, visibility 2s ease 100ms;
+  transition: opacity 500ms ease, visibility 2s ease 500ms;
 }
 
 .modal_is-opened {
@@ -41,7 +41,7 @@
   opacity: 40%;
   cursor: pointer;
   padding: 0;
-  border: none
+  border: none;
 }
 
 .modal__close-btn:hover {
@@ -84,7 +84,7 @@
 }
 
 .modal__input:hover {
-  opacity: 1;
+  border-color: black;
 }
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 0.3);
@@ -106,18 +106,20 @@
 }
 
 .modal__submit-btn:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 @media screen and (max-width: 627px) {
   .modal__container {
-    padding: 12px;
+    padding: 22px 12px 12px;
   }
-
+  .modal__close-btn {
+    top: 15px;
+    right: 5px;
+  }
   .modal__title {
     font-size: 20px;
     margin-bottom: 24px;
   }
-
 
   .modal__input {
     margin-bottom: 24px;

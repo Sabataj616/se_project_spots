@@ -48,6 +48,7 @@ profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  console.log(imageLinkInput.value, captionInput.value);
   newPostModal.classList.remove("modal_is-opened");
 }
 
