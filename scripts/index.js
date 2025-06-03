@@ -1,5 +1,10 @@
 const initialCards = [
   {
+    name: "Golden Gate Bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
+
+  {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
@@ -42,9 +47,19 @@ const editProfileDescriptionInput =
   editProfileModal.querySelector("#description-input");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
 
+const cardList = document.querySelector(".cards__list");
 const cardFormElement = newPostModal.querySelector(".modal__form");
 const imageLinkInput = cardFormElement.querySelector("#image-link-input");
 const captionInput = cardFormElement.querySelector("#caption-input");
+const modalPreview = document.querySelector("#preview-modal");
+const previewModalCloseBtn = modalPreview.querySelector(
+  ".modal__close-btn_type_preview"
+);
+const previewModalImage = modalPreview.querySelector(".modal__image");
+const previewModalCaption = modalPreview.querySelector(".modal__caption");
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -61,6 +76,10 @@ editProfileBtn.addEventListener("click", function () {
 
 modalClosebtn.addEventListener("click", function () {
   closeModal(editProfileModal);
+});
+
+previewModalCloseBtn.addEventListener("click", function () {
+  closeModal(modalPreview);
 });
 
 newPostBtn.addEventListener("click", function () {
@@ -80,15 +99,50 @@ function handleProfileFormSubmit(evt) {
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__title");
+  cardTitle.textContent = data.name;
+  const cardImage = cardElement.querySelector(".card__image");
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+
+  const cardLikeButton = cardElement.querySelector(".card__like-btn");
+  cardLikeButton.addEventListener("click", function () {
+    cardLikeButton.classList.toggle("card__like-btn_active");
+  });
+
+  const cardDeleteButton = cardElement.querySelector(".card__delete-btn");
+  cardDeleteButton.addEventListener("click", function () {
+    cardElement.remove();
+    cardElement = null;
+  });
+
+  previewModalImage.addEventListener("click", function () {
+    previewModalImage.src = data.link;
+    previewModalImage.alt = data.name;
+    previewModalCaption.textContent = data.name;
+
+    openModal(modalPreview);
+  });
+
+  return cardElement;
+}
+
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  console.log(imageLinkInput.value, captionInput.value);
+  const inputValues = {
+    name: captionInput.value,
+    link: imageLinkInput.value,
+  };
+  const cardEl = getCardElement(inputValues);
+  cardList.prepend(cardEl);
   closeModal(newPostModal);
 }
 
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach(function (item) {
-  console.log(item.name);
-  console.log(item.link);
+  const cardEl = getCardElement(item);
+  cardList.append(cardEl);
 });
