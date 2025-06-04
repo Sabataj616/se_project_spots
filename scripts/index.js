@@ -100,7 +100,7 @@ function handleProfileFormSubmit(evt) {
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
+  let cardElement = cardTemplate.cloneNode(true);
   const cardTitle = cardElement.querySelector(".card__title");
   cardTitle.textContent = data.name;
   const cardImage = cardElement.querySelector(".card__image");
@@ -118,7 +118,7 @@ function getCardElement(data) {
     cardElement = null;
   });
 
-  previewModalImage.addEventListener("click", function () {
+  cardImage.addEventListener("click", function () {
     previewModalImage.src = data.link;
     previewModalImage.alt = data.name;
     previewModalCaption.textContent = data.name;
@@ -138,6 +138,8 @@ function handleAddCardSubmit(evt) {
   const cardEl = getCardElement(inputValues);
   cardList.prepend(cardEl);
   closeModal(newPostModal);
+  captionInput.value = "";
+  imageLinkInput.value = "";
 }
 
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
