@@ -29,20 +29,21 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
-
+const editForm = document.querySelector("#edit-profile-form");
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const modalClosebtn = editProfileModal.querySelector(".modal__close-btn");
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
-
+const cardSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input"
 );
+
 const editProfileDescriptionInput =
   editProfileModal.querySelector("#description-input");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
@@ -55,6 +56,7 @@ const modalPreview = document.querySelector("#preview-modal");
 const previewModalCloseBtn = modalPreview.querySelector(
   ".modal__close-btn_type_preview"
 );
+
 const previewModalImage = modalPreview.querySelector(".modal__image");
 const previewModalCaption = modalPreview.querySelector(".modal__caption");
 const cardTemplate = document
@@ -71,6 +73,7 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  resetValidation(editForm, [editProfileNameInput, editProfileDescriptionInput]);
   openModal(editProfileModal);
 });
 
@@ -98,6 +101,8 @@ function handleProfileFormSubmit(evt) {
 }
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
+
+
 
 function getCardElement(data) {
   let cardElement = cardTemplate.cloneNode(true);
@@ -140,6 +145,7 @@ function handleAddCardSubmit(evt) {
   closeModal(newPostModal);
   captionInput.value = "";
   imageLinkInput.value = "";
+  disableButton(cardSubmitBtn, settings);
 }
 
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
