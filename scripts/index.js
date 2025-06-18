@@ -73,7 +73,11 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  resetValidation(editForm, [editProfileNameInput, editProfileDescriptionInput]);
+  resetValidation(
+    editForm,
+    [editProfileNameInput, editProfileDescriptionInput],
+    settings
+  );
   openModal(editProfileModal);
 });
 
@@ -86,6 +90,8 @@ previewModalCloseBtn.addEventListener("click", function () {
 });
 
 newPostBtn.addEventListener("click", function () {
+  resetValidation(cardFormElement, [imageLinkInput, captionInput], settings);
+  disableButton(cardSubmitBtn, settings);
   openModal(newPostModal);
 });
 
@@ -101,8 +107,6 @@ function handleProfileFormSubmit(evt) {
 }
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
-
-
 
 function getCardElement(data) {
   let cardElement = cardTemplate.cloneNode(true);
