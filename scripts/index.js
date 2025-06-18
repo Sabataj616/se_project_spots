@@ -57,6 +57,19 @@ const previewModalCloseBtn = modalPreview.querySelector(
   ".modal__close-btn_type_preview"
 );
 
+const escFunction = function (event) {
+  const openModal = document.querySelector(".modal_is-opened");
+  if (event.key === "Escape") {
+    closeModal(openModal);
+  }
+};
+
+const ovrlayFunction = function (event) {
+  const openModal = document.querySelector(".modal_is-opened");
+  if (event.target.classList.contains("modal")) {
+    closeModal(openModal);
+  }
+};
 const previewModalImage = modalPreview.querySelector(".modal__image");
 const previewModalCaption = modalPreview.querySelector(".modal__caption");
 const cardTemplate = document
@@ -65,10 +78,14 @@ const cardTemplate = document
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", escFunction);
+  document.addEventListener("click", ovrlayFunction);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", escFunction);
+  document.removeEventListener("click", ovrlayFunction);
 }
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
