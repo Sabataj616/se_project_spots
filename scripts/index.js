@@ -84,8 +84,8 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
-  document.removeEventListener("keydown", escapeFunction);
-  document.removeEventListener("click", ovrlayFunction);
+  document.removeEventListener("keydown", closeOnEscape);
+  document.removeEventListener("click", closeOverlayClick);
 }
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
