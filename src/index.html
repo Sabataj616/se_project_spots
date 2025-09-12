@@ -6,31 +6,51 @@
     <meta name="author" content="Tajgi Fields" />
     <meta name="description" content="Spots Project" />
     <meta name="keywords" content="Spots, Project" />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="icon" href="./favicon.ico" />
     <title>Spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/Logo.svg" alt="Spot logo" class="header__logo" />
+        <img
+          src="<%=require('../src/images/logo.svg')%>"
+          alt="Spot logo"
+          class="header__logo"
+        />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="./images/avatar.jpg"
-            alt="Bessie Avatar"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-btn">
+              <img
+                src="<%=require('../src/images/Light-pencil.svg')%>"
+                alt="Pencil-icon"
+                class="profile__pencil-icon"
+              />
+            </button>
+            <img
+              src="<%=require('../src/images/avatar.jpg')%>"
+              alt="Bessie Avatar"
+              class="profile__avatar"
+            />
+          </div>
+
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/Group2.svg" alt="Pencil icon" />Edit Profile
+              <img
+                src="<%=require('../src/images/Group2.svg')%>"
+                alt="Pencil icon"
+              />
+              Edit Profile
             </button>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="./images/Group26.svg" alt="Plus icon" />New Post
+            <img
+              src="<%=require('../src/images/Group26.svg')%>"
+              alt="Plus icon"
+            />
+            New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -108,7 +128,6 @@
               id="caption-input"
               placeholder="Type your caption"
               minlength="2"
-              maxlength="30"
               required
             />
             <span id="caption-input-error" class="modal__error"></span>
@@ -129,7 +148,43 @@
         <p class="modal__caption"></p>
       </div>
     </div>
-    <script src="./scripts/validation.js"></script>
-    <script src="./scripts/index.js"></script>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close-btn"></button>
+        <h2 class="modal__title">Edit profile avatar</h2>
+        <form class="modal__form" id="avatar-form" novalidate>
+          <label for="avatar-input" class="modal__label">Profile Picture</label>
+          <input
+            class="modal__input"
+            type="text"
+            id="avatar-input"
+            placeholder="Paste the link to an image"
+            minlength="2"
+            required
+          />
+          <span id="avatar-input-error" class="modal__error"></span>
+
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="delete-modal">
+      <button type="button" class="modal__close-btn"></button>
+      <div class="modal__container">
+        <h2 class="modal__title">
+          Are you sure you want to delete this image?
+        </h2>
+        <form class="modal__form" id="delete-form" novalidate>
+          <button type="submit" class="modal__submit-btn modal__delete-btn">
+            Delete
+          </button>
+          <button type="button" class="modal__submit-btn modal__cancel-btn">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
