@@ -69,7 +69,8 @@ api
 const editForm = document.querySelector("#edit-profile-form");
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const modalClosebtn = editProfileModal.querySelector(".modal__close-btn");
+const editProfileModalClosebtn =
+  editProfileModal.querySelector(".modal__close-btn");
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
@@ -78,13 +79,13 @@ const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const profileAvatarEl = document.querySelector(".profile__avatar");
 const avatarModal = document.querySelector("#avatar-modal");
-const avatarButton = document.querySelector(".profile__avatar-btn");
+const profileAvatarButton = document.querySelector(".profile__avatar-btn");
 const avatarCloseButton = avatarModal.querySelector(".modal__close-btn");
 const avatarForm = document.querySelector("#avatar-form");
 const deleteModal = document.querySelector("#delete-modal");
-const deleteCloseBtn = deleteModal.querySelector(".modal__close-btn");
+const deleteFormCloseBtn = deleteModal.querySelector(".modal__close-btn");
 const deleteForm = deleteModal.querySelector("#delete-form");
-const cancelButton = deleteModal.querySelector(".modal__cancel-btn");
+const deleteFormCancelButton = deleteModal.querySelector(".modal__cancel-btn");
 
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input"
@@ -106,8 +107,8 @@ const previewModalCloseBtn = modalPreview.querySelector(
 );
 
 const closeOnEscape = function (event) {
-  const openModal = document.querySelector(".modal_is-opened");
   if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal_is-opened");
     closeModal(openModal);
   }
 };
@@ -149,11 +150,11 @@ editProfileBtn.addEventListener("click", function () {
   openModal(editProfileModal);
 });
 
-modalClosebtn.addEventListener("click", function () {
+editProfileModalClosebtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
 
-cancelButton.addEventListener("click", function () {
+deleteFormCancelButton.addEventListener("click", function () {
   closeModal(deleteModal);
 });
 
@@ -171,7 +172,7 @@ newPostCloseBtn.addEventListener("click", function () {
   closeModal(newPostModal);
 });
 
-avatarButton.addEventListener("click", function () {
+profileAvatarButton.addEventListener("click", function () {
   avatarInput.value = profileAvatarEl.src;
   resetValidation(avatarForm, [avatarInput], settings);
   openModal(avatarModal);
@@ -182,7 +183,7 @@ avatarCloseButton.addEventListener("click", function () {
   closeModal(avatarModal);
 });
 
-deleteCloseBtn.addEventListener("click", function () {
+deleteFormCloseBtn.addEventListener("click", function () {
   closeModal(deleteModal);
 });
 
@@ -218,6 +219,7 @@ function handleProfileAvatarSubmit(evt) {
     })
     .then((data) => {
       profileAvatarEl.src = data.avatar;
+      closeModal(avatarModal);
     })
     .catch(console.error)
     .finally(() => {
@@ -274,8 +276,14 @@ function getCardElement(data) {
   const cardImage = cardElement.querySelector(".card__image");
   cardImage.src = data.link;
   cardImage.alt = data.name;
+  cardImage.id = data._id;
 
   const cardLikeButton = cardElement.querySelector(".card__like-btn");
+  if (data.isLiked) {
+    cardLikeButton.classList.add("card__like-btn_active");
+  } else {
+    cardLikeButton.classList.remove("card__like-btn_active");
+  }
   cardLikeButton.addEventListener("click", (evt) => handleLike(evt, data));
 
   const cardDeleteButton = cardElement.querySelector(".card__delete-btn");
@@ -308,6 +316,7 @@ function handleAddCardSubmit(evt) {
       const inputValues = {
         name: data.name,
         link: data.link,
+        _id: data._id,
       };
       const cardEl = getCardElement(inputValues);
       cardList.prepend(cardEl);

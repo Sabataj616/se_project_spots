@@ -30,6 +30,17 @@
   justify-content: center;
   visibility: hidden;
   cursor: pointer;
+  bottom: 0;
+  left: 0;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 0 0 8px 8px;
+  padding: 0 0 12px;
+  gap: 8px;
 }
 
 .profile__avatar-container:hover .profile__avatar-btn {
@@ -42,6 +53,9 @@
 
 .profile__avatar-container {
   position: relative;
+  margin-right: 20px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .profile__add-btn:hover {
@@ -49,7 +63,6 @@
 }
 
 .profile__avatar {
-  margin-right: 20px;
   height: 190px;
   width: 190px;
   border-radius: 8px;
@@ -122,17 +135,32 @@
     align-items: center;
   }
 
+  .profile__avatar-container {
+    margin-right: 0;
+    margin: 0 0 12px 0;
+  }
+
+
+
+
+
   .profile__avatar {
     margin-right: 0;
     width: 80px;
     height: 80px;
-    margin-bottom: 12px;
   }
 
   .profile__avatar-btn {
     visibility: visible;
+    width: 23px;
+    height: 23px;
+    left: unset;
+    bottom: 4px;
+    right: 0;
+    padding: 0;
+    border-radius: 6px;
+    display: block;
   }
-
   .profile__avatar-btn::after {
     content: "";
   }

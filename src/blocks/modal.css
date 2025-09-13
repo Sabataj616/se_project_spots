@@ -21,6 +21,7 @@
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal__container {
@@ -227,9 +228,7 @@
     right: 0;
   }
 
-  .modal__image {
-    max-width: unset;
-  }
+
 
   .modal__title {
     font-size: 20px;
