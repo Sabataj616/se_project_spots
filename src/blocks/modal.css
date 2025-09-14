@@ -21,6 +21,7 @@
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal__container {
@@ -70,6 +71,47 @@
   font-size: 32px;
   line-height: 1;
   color: rgba(33, 33, 33, 1);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+#delete-modal .modal__container {
+  width: 630px;
+  height: 172px;
+  padding: 32px 20px;
+  margin: auto;
+  text-align: center;
+}
+
+#delete-modal .modal__form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  width: 332px;
+  height: 52px;
+  gap: 20px;
+}
+
+#delete-modal .modal__submit-btn {
+  width: 156px;
+  height: 52px;
+}
+
+#delete-modal .modal__delete-btn {
+  background-color: rgba(255, 101, 101, 1);
+}
+#delete-modal .modal__title {
+  width: 590px;
+  height: 24px;
+  justify-content: space-between;
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+
+#delete-modal .modal__close-btn {
+  top: 285px;
+  right: 353px;
+  background-image: url(../images/Closewhite.svg);
 }
 
 .modal__label {
@@ -79,6 +121,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.1;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .modal__form {
@@ -99,6 +142,7 @@
   line-height: 1;
   box-sizing: border-box;
   cursor: pointer;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .modal__input:hover {
@@ -131,6 +175,7 @@
   line-height: 1;
   cursor: pointer;
   border: 0;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .modal__submit-btn:hover {
@@ -183,9 +228,7 @@
     right: 0;
   }
 
-  .modal__image {
-    max-width: unset;
-  }
+
 
   .modal__title {
     font-size: 20px;
@@ -200,5 +243,27 @@
   .modal__submit-btn {
     max-width: none;
     width: 100%;
+  }
+
+  #delete-modal .modal__submit-btn {
+    max-width: 156px;
+    max-height: 116px;
+  }
+
+  #delete-modal .modal__container {
+    min-width: 300px;
+    min-height: 208px;
+  }
+
+  #delete-modal .modal__title {
+    max-width: 276px;
+    max-height: 48px;
+    margin: auto;
+  }
+
+  #delete-modal .modal__form {
+    flex-direction: column;
+    max-width: 156px;
+    max-height: 116px;
   }
 }
